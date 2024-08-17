@@ -18,18 +18,18 @@ const MessageSchema:Schema<Message> = new Schema({
 })
 
 export interface User extends Document{
-    userName: string;
+    username: string;
     messages: Message[];
     email:string;
     password:string;
-    verifiedCode:string;
-    verified: boolean;
+    verifyCode:string;
+    isverified: boolean;
     verifyCodeExpiry:Date;
     isAcceptingMessage:boolean;
 }
 
 const UserSchema: Schema<User> = new Schema({
-    userName:{
+    username:{
         type: String,
         required: [true, "UserName is required"],
         unique: true
@@ -45,11 +45,11 @@ const UserSchema: Schema<User> = new Schema({
         type: String,
         required: [true,"Password is required"]
     },
-    verifiedCode:{
+    verifyCode:{
         type:String,
         required: [true,"Verifie code is required"]
     },
-    verified:{
+    isverified:{
         type:Boolean,
         default:false
     },
